@@ -73,7 +73,9 @@ const Home = () => {
   const fetchJobs = async () => {
     try {
       // Make a GET request to your server endpoint to fetch jobs
-      const response = await axios.get("http://localhost:5008/jobs");
+      const response = await axios.get(
+        "https://dipto-tech-foring-backend.onrender.com/jobs"
+      );
 
       // Update the state with the fetched jobs
       setJobs(response.data);
@@ -85,7 +87,9 @@ const Home = () => {
   const handleDelete = async (jobId) => {
     // Implement delete functionality
     try {
-      await axios.delete(`http://localhost:5008/jobs/${jobId}`);
+      await axios.delete(
+        `https://dipto-tech-foring-backend.onrender.com/jobs/${jobId}`
+      );
 
       // Refresh jobs after deleting
       fetchJobs();

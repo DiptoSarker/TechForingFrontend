@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { useNavigate } from "react-router-dom";
 
-const API_BASE_URL = "http://localhost:5008";
+const API_BASE_URL = "https://dipto-tech-foring-backend.onrender.com";
 
 const useStyles = makeStyles((theme) => ({
   container: {

@@ -39,10 +39,13 @@ const AddJob = ({ onAdd }) => {
 
   const handleAdd = async () => {
     try {
-      const response = await axios.post("http://localhost:5008/jobs", {
-        title,
-        description,
-      });
+      const response = await axios.post(
+        "https://dipto-tech-foring-backend.onrender.com//jobs",
+        {
+          title,
+          description,
+        }
+      );
 
       // Call the onAdd callback to refresh the jobs in the parent component
       onAdd(response.data.job);
