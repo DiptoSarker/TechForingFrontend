@@ -40,7 +40,7 @@ const AddJob = ({ onAdd }) => {
   const handleAdd = async () => {
     try {
       const response = await axios.post(
-        "https://dipto-tech-foring-backend.onrender.com//jobs",
+        "https://dipto-tech-foring-backend.onrender.com/jobs",
         {
           title,
           description,
