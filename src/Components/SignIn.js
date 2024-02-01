@@ -57,7 +57,7 @@ const AuthPage = () => {
 
       if (response.ok) {
         // Successful sign-in
-        navigate("/signin");
+        navigate("/home");
       } else {
         // Unsuccessful sign-in
         setError(data.message);

@@ -4,7 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignUp from "../src/Components/SignUp";
 import SignIn from "../src/Components/SignIn";
 import Home from "../src/Components/Home";
-import AddJob from "../src/Components/Adding"; // Import the AddJob component
+import AddJob from "../src/Components/Adding";
+import PrivateRoute from "./Components/PrivateRoute";
+//import authenticateJWT from "./middleware/authMiddleware";
 
 function App() {
   return (
@@ -12,8 +14,23 @@ function App() {
       <Routes>
         <Route path="/" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/add-job" element={<AddJob />} />
+        <Route
+          path="/home"
+          element={
+            <PrivateRoute>
+              {" "}
+              <Home />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/add-job"
+          element={
+            <PrivateRoute>
+              <AddJob />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </Router>
   );

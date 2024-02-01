@@ -81,7 +81,7 @@ const AuthPage = () => {
         setEmailError(data.message);
       } else {
         // Handle successful signin navigation...
-        navigate("/signin");
+        navigate("/home");
       }
     } catch (error) {
       console.error("Error during signup:", error);
