@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AuthPage = () => {
+const AuthPage = ({ setAuthStatus }) => {
   const classes = useStyles();
 
   const [username, setUsername] = useState("");
@@ -81,6 +81,8 @@ const AuthPage = () => {
         setEmailError(data.message);
       } else {
         // Handle successful signin navigation...
+
+        setAuthStatus(true);
         navigate("/home");
       }
     } catch (error) {

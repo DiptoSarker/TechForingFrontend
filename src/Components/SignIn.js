@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AuthPage = () => {
+const AuthPage = ({ setAuthStatus }) => {
   const classes = useStyles();
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -58,6 +58,7 @@ const AuthPage = () => {
       if (response.ok) {
         // Successful sign-in
         navigate("/home");
+        setAuthStatus(true);
       } else {
         // Unsuccessful sign-in
         setError(data.message);

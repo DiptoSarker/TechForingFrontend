@@ -1,5 +1,5 @@
 // App.js
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignUp from "../src/Components/SignUp";
 import SignIn from "../src/Components/SignIn";
@@ -8,16 +8,17 @@ import AddJob from "../src/Components/Adding";
 import PrivateRoute from "./Components/PrivateRoute";
 //import authenticateJWT from "./middleware/authMiddleware";
 
-function App() {
+const App = () => {
+  const [auth, setAuth] = useState(false);
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn />} />
+        <Route path="/" element={<SignUp setAuthStatus={setAuth} />} />
+        <Route path="/signin" element={<SignIn setAuthStatus={setAuth} />} />
         <Route
           path="/home"
           element={
-            <PrivateRoute>
+            <PrivateRoute auth={auth}>
               {" "}
               <Home />
             </PrivateRoute>
@@ -26,7 +27,7 @@ function App() {
         <Route
           path="/add-job"
           element={
-            <PrivateRoute>
+            <PrivateRoute auth={auth}>
               <AddJob />
             </PrivateRoute>
           }
@@ -34,6 +35,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;
